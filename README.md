@@ -1,0 +1,1 @@
+My Modern CMake template
