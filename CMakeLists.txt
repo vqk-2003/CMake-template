@@ -2,6 +2,14 @@
 cmake_minimum_required(VERSION 3.15)
 project(mylibrary VERSION 0.0.1 LANGUAGES CXX)
 
+# where to find cmake files
+list(APPEND CMAKE_MODULE_PATH
+    ${PROJECT_SOURCE_DIR}/cmake    
+)
+
+# define GNU standard installation directories
+include(GNUInstallDirs)
+
 # use c++11 for now
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,7 +21,7 @@ add_subdirectory(src)
 include(CMakePackageConfigHelpers)
 
 write_basic_package_version_file(
-    ${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+    ${PROJECT_NAME}ConfigVersion.cmake
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion
 )

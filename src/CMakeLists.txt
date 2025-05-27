@@ -1,6 +1,3 @@
-# define GNU standard installation directories
-include(GNUInstallDirs)
-
 # Create target
 # let the users specify whether they want a static or shared library
 add_library(${PROJECT_NAME} mylibrary.cpp)
