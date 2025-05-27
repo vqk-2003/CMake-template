@@ -22,9 +22,6 @@ target_compile_options(${PROJECT_NAME}
 )
 
 # installation instructions
-# set installation location for the .cmake files
-set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-
 # copy the library target to the install location and associate the target to the export target
 # LIBRARY is the destination for dynamic libraries, ARCHIVE is the destination for static libraries
 install(TARGETS ${PROJECT_NAME}
@@ -36,36 +33,11 @@ install(TARGETS ${PROJECT_NAME}
 # install the export target
 install(EXPORT "${PROJECT_NAME}Targets"
     NAMESPACE ${PROJECT_NAME}::
-    DESTINATION ${INSTALL_CONFIGDIR}
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
 
 # copy header files to the install include directory
 install(
     DIRECTORY ${PROJECT_SOURCE_DIR}/include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
-
-# helper function to create config files
-include(CMakePackageConfigHelpers)
-
-write_basic_package_version_file(
-    ${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY SameMajorVersion
-)
-
-configure_package_config_file(
-    ${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in
-    ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-    INSTALL_DESTINATION
-        ${INSTALL_CONFIGDIR}
-)
-
-# install all the helper files
-install(
-    FILES
-        ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-        ${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-    DESTINATION
-        ${INSTALL_CONFIGDIR}
 )
