@@ -9,7 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Create target
 # let the users specify whether they want a static or shared library
-add_library(${PROJECT_NAME} mylibrary.cpp)
+add_library(${PROJECT_NAME} src/mylibrary.cpp)
 
 # this let cmake know we are linking to a target and generate better diagnoses
 add_library("${PROJECT_NAME}::${PROJECT_NAME}" ALIAS ${PROJECT_NAME})
@@ -29,6 +29,8 @@ target_compile_options(${PROJECT_NAME}
     PRIVATE
         $<$<COMPILE_LANG_AND_ID:CXX,Clang,GNU>:$<BUILD_INTERFACE:-Wall;-Wextra;-Wconversion;-Wsign-conversion;-pedantic-errors;-Werror>>
 )
+
+include(FetchContent)
 
 FetchContent_Declare(
     fmt
