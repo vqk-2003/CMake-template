@@ -91,7 +91,7 @@ install(
         ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
 
-option(${PROJECT_NAME}_BUILD_TEST "Enable tests" OFF)
+option(${PROJECT_NAME}_BUILD_TEST "Enable tests" ON)
 
 # add test
 if(${PROJECT_NAME}_BUILD_TEST)
