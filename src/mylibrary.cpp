@@ -1,7 +1,7 @@
 #include "mylibrary/mylibrary.hpp"
-#include <iostream>
+#include <fmt/format.h>
 
 void printHello()
 {
-    std::cout << "Hello, world!\n";
+    fmt::print("Hello, {}!\n", "world");
 }
