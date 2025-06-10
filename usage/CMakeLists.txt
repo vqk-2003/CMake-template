@@ -8,10 +8,10 @@ include(FetchContent)
 FetchContent_Declare(
     mylibrary
     GIT_REPOSITORY https://github.com/vqk-2003/CMake-template.git
-    GIT_TAG v1.0.0
+    GIT_TAG v1.0.1
     SYSTEM
     GIT_SHALLOW
-    FIND_PACKAGE_ARGS 1.0.0
+    FIND_PACKAGE_ARGS 1.0.1
 )
 
 FetchContent_MakeAvailable(mylibrary)
